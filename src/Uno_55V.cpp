@@ -1,10 +1,10 @@
 #include <Arduino.h>
 
 int read_value;
-int repetition = 1;
+int repetition = 10; // how many measurements should be averaged, 1 is also possible
 float u;
-float u_in = 4.982;
-float r_faktor = 11;
+float u_in = 5.009;
+float r_faktor = 11.100;
 String incomingString;
 
 
@@ -23,7 +23,7 @@ void loop() {
       read_value = 0;
       for(int j = 0; j < repetition; j++){
         read_value+=analogRead(A0);}
-
+        delay(50);
       read_value=read_value/repetition;
       Serial.print("A0: ");
       Serial.print(read_value);
